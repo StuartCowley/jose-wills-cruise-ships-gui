@@ -1,16 +1,21 @@
-class Controller {
-    constructor() {
-        this.initialiseSea();
+(function exportController() {
+    class Controller {
+        constructor() {
+            this.initialiseSea();
+        }
+        initialiseSea() {
+            const backgrounds = [
+                './images/water0.png',
+                './images/water1.png',
+            ];
+            let backgroundIndex = 0;
+            window.setInterval(() => {document.querySelector('#viewport').style.backgroundImage = `url('${backgrounds[backgroundIndex % backgrounds.length]}')`;
+            backgroundIndex += 1;}, 500);
+        }
     }
-    initialiseSea() {
-        const backgrounds = [
-            './images/water0.png',
-            './images/water1.png',
-        ];
-        let backgroundIndex = 0;
-        window.setInterval(() => {document.querySelector('#viewport').style.backgroundImage = `url('${backgrounds[backgroundIndex % backgrounds.length]}')`;
-        backgroundIndex += 1;}, 500);
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = Controller;
+    } else {
+        window.Port = Controller;
     }
-}
-
-module.exports = Controller;
+}());
