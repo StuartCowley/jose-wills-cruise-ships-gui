@@ -1,21 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset='UTF-8'>
+        <meta http-equiv="X-UA-Compatible" content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <title>Cruise Ships</title>
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel='stylesheet' href='css/normalize.css'>
+        <link rel='stylesheet' href='css/style.css'>
     </head>
     <body>
-        <div id="viewport">
-            <div id="ports">
+        <div id='viewport'>
+            <div id='ports'>
+            </div>
+            <div id='ship'>
             </div>
         </div>
-        <script src="src/controller.js"></script>
-        <script src="src/port.js"></script>
-        <script src="src/itinerary.js"></script>
+        <script src='src/controller.js'></script>
+        <script src='src/port.js'></script>
+        <script src='src/itinerary.js'></script>
+        <script src='src/ship.js'></script>
         <script>
             const controller = new Controller();
             const itinerary = new Itinerary([
@@ -25,6 +28,8 @@
                 new Port('Port D')
             ]);
             controller.renderPorts(itinerary.ports);
+            const ship = new Ship(itinerary);
+            controller.renderShip(ship);
         </script>
     </body>
 </html>
