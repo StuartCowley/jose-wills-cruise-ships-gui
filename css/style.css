@@ -35,3 +35,25 @@ body {
     position: absolute;
     background-image: url('../images/ship.png');
 }
+
+#sailButton {
+    font-family: 'Shrikhand', cursive;
+    position: fixed;
+    top: 33%;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    margin: 3px 6px;
+    font-size: 1.2em;
+    padding: 9px;
+}
+
+#sailButton:hover {
+    border: 3px inset black;
+    border-radius: 90px;
+}
+
+#sailButton:active {
+    border: 3px outset white;
+    color: white;
+}
+

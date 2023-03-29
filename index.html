@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang='en'>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
         <meta charset='UTF-8'>
         <meta http-equiv="X-UA-Compatible" content='IE=edge'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
@@ -14,22 +17,23 @@
             </div>
             <div id='ship'>
             </div>
+            <button id='sailButton'>SET SAIL!</button>
         </div>
         <script src='src/controller.js'></script>
         <script src='src/port.js'></script>
         <script src='src/itinerary.js'></script>
         <script src='src/ship.js'></script>
         <script>
-            const controller = new Controller();
             const itinerary = new Itinerary([
                 new Port('Port A'),
                 new Port('Port B'),
                 new Port('Port C'),
                 new Port('Port D')
             ]);
-            controller.renderPorts(itinerary.ports);
             const ship = new Ship(itinerary);
-            controller.renderShip(ship);
+            const controller = new Controller(ship);
+            controller.renderPorts(itinerary.ports);
+            controller.renderShip();
         </script>
     </body>
 </html>
