@@ -69,3 +69,11 @@ body {
     color:darkred;
     letter-spacing: 1.5px;
 }
+
+#display {
+    font-family: 'Shrikhand', cursive;
+    color: white;
+    bottom: 24%;
+    position: fixed;
+    font-size: 1.5em;
+}
