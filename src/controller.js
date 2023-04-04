@@ -5,7 +5,8 @@
             this.initialiseSea();
             document.querySelector('#sailButton').addEventListener('click', () => {
                 this.setSail();
-            })
+            });
+            this.headsUpDisplay();
         }
         initialiseSea() {
             const backgrounds = [
@@ -57,6 +58,7 @@
                     ship.setSail();
                     ship.dock();
                     this.renderMessage(`Now docked at ${ship.currentPort.name}`);
+                    this.headsUpDisplay();
                     clearInterval(sailInterval);
                 }
                 shipElement.style.left = `${shipLeft + 1}px`;
@@ -73,6 +75,17 @@
             setTimeout(() => {
                 viewport.removeChild(messageElement);
             }, 2136); 
+        }
+        headsUpDisplay() {
+            const ship = this.ship;
+            const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
+            const nextPortIndex = currentPortIndex + 1;
+            const displayElement = document.querySelector('#display');
+            if (nextPortIndex > ship.itinerary.ports.length - 1) {
+                displayElement.innerHTML = `Current Port is ${ship.currentPort.name} <br /> This is the last port in our itinerary`;
+            } else {
+                displayElement.innerHTML = `Current Port: ${ship.currentPort.name} <br /> Next Port: ${ship.itinerary.ports[nextPortIndex].name}`;
+            }
         }
     }
     if (typeof module !== 'undefined' && module.exports) {
