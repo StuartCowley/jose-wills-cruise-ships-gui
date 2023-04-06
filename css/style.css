@@ -76,4 +76,14 @@ body {
     bottom: 24%;
     position: fixed;
     font-size: 1.5em;
+    letter-spacing: 0.3px;
+}
+
+#form {
+    color: white;
+    font-family: 'Shrikhand', cursive;
+    position: fixed;
+    top: 28%;
+    font-size: 1.5em;
+    letter-spacing: 1.2px;
 }

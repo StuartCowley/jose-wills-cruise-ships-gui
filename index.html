@@ -22,21 +22,24 @@
             <div id='display'>
             </div>
         </div>
+        <form id='form'>
+            <label for='port'>Port Name:</label>
+            <input type='text' id='port' size='10' placeholder='Liverpool'>
+            <button type='submit'>Add</button>
+        </form>
         <script src='src/controller.js'></script>
         <script src='src/port.js'></script>
         <script src='src/itinerary.js'></script>
         <script src='src/ship.js'></script>
         <script>
-            const itinerary = new Itinerary([
-                new Port('Port A'),
-                new Port('Port B'),
-                new Port('Port C'),
-                new Port('Port D')
-            ]);
+            const itinerary = new Itinerary([]);
             const ship = new Ship(itinerary);
             const controller = new Controller(ship);
             controller.renderPorts(itinerary.ports);
             controller.renderShip();
+            const sendPort = () => {
+
+            }
         </script>
     </body>
 </html>
