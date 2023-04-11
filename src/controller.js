@@ -69,7 +69,7 @@
             if (!nextPortElement) {
                 this.renderMessage(`${ship.currentPort.name} is the last stop in our itinerary!`);
               } else {
-                this.renderMessage(`Now departing ${ship.currentPort.name}`);
+                this.renderMessage(`Now departing: ${ship.currentPort.name}`);
               }
 
             const shipElement = document.querySelector('#ship');
@@ -78,7 +78,7 @@
                 if (shipLeft === (nextPortElement.offsetLeft - 30)) {
                     ship.setSail();
                     ship.dock();
-                    this.renderMessage(`Now docked at ${ship.currentPort.name}`);
+                    this.renderMessage(`Now docked at: ${ship.currentPort.name}`);
                     this.headsUpDisplay();
                     clearInterval(sailInterval);
                 }
