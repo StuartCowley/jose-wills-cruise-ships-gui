@@ -3,10 +3,10 @@
         constructor(ship) {
             this.ship = ship;
             this.initialiseSea();
+            this.addPorts();
             document.querySelector('#sailButton').addEventListener('click', () => {
                 this.setSail();
             });
-            this.headsUpDisplay();
         }
         initialiseSea() {
             const backgrounds = [
@@ -17,10 +17,28 @@
             window.setInterval(() => {document.querySelector('#viewport').style.backgroundImage = `url('${backgrounds[backgroundIndex % backgrounds.length]}')`;
             backgroundIndex += 1;}, 500);
         }
+        addPorts() {
+            const ship = this.ship;
+            const input = document.querySelector('input');
+            document.querySelector('#form').addEventListener('submit', () => {
+                const newPort = new Port(input.value);
+                ship.itinerary.ports.push(newPort);
+                this.renderPorts(ship.itinerary.ports);
+                ship.dock();
+                this.renderShip();
+                this.headsUpDisplay();
+                input.value = '';
+            });
+        }
+        resetPorts(parent){
+            while (parent.firstChild) {
+                parent.removeChild(parent.firstChild);
+            }
+        }
         renderPorts(ports) {
             const portsElement = document.querySelector('#ports');
             portsElement.style.width = '0px';
-
+            this.resetPorts(portsElement);
             ports.forEach((port, index) => {
                 const newPortElement = document.createElement('div');
                 newPortElement.className = 'port';
@@ -82,9 +100,9 @@
             const nextPortIndex = currentPortIndex + 1;
             const displayElement = document.querySelector('#display');
             if (nextPortIndex > ship.itinerary.ports.length - 1) {
-                displayElement.innerHTML = `Current Port is ${ship.currentPort.name} <br /> This is the last port in our itinerary`;
+                displayElement.innerHTML = `Current port is ${ship.currentPort.name} <br /> This is the last port in our itinerary`;
             } else {
-                displayElement.innerHTML = `Current Port: ${ship.currentPort.name} <br /> Next Port: ${ship.itinerary.ports[nextPortIndex].name}`;
+                displayElement.innerHTML = `Current port: ${ship.currentPort.name} <br /> Next port: ${ship.itinerary.ports[nextPortIndex].name}`;
             }
         }
     }

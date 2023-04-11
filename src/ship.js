@@ -3,9 +3,13 @@
         constructor(itinerary) {
             this.itinerary = itinerary;
             this.itineraryCount = 0;
-            this.currentPort = itinerary.ports[0];
+            this.currentPort = null;
             this.previousPort = null;
-            this.currentPort.addShip(this);
+            if (typeof this.currentPort === 'undefined') {
+                throw new Error ('Ship does not have a current port');
+            } else {
+                this.dock();
+            }
         }
         setSail() {
             if (this.itineraryCount >= (this.itinerary.ports.length - 1)) {
