@@ -15,6 +15,7 @@ body {
     position: relative;
     overflow-x: auto;
     background-image: url('../images/water0.png');
+    border-radius: 24px;
 }
 
 #ports {
@@ -42,7 +43,6 @@ body {
     top: 33%;
     background-color: rgba(0, 0, 0, 0);
     border: 0;
-    margin: 3px 6px;
     font-size: 1.2em;
     padding: 9px;
 }
@@ -61,10 +61,12 @@ body {
     color: white;
     background-color:red;
     font-family: 'Unbounded', cursive;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
+    position: fixed;
+    bottom: 33.3%;
+    width: auto;
+    right: 400px;
     border-top: 1px solid black;
+    border-left: 1px solid black;
     padding: 9px;
 }
 
