@@ -20,7 +20,9 @@
         addPorts() {
             const ship = this.ship;
             const input = document.querySelector('input');
+            const button = document.querySelector('button');
             document.querySelector('#form').addEventListener('submit', () => {
+                button.removeAttribute('hidden');
                 const newPort = new Port(input.value);
                 ship.itinerary.ports.push(newPort);
                 this.renderPorts(ship.itinerary.ports);
@@ -63,6 +65,7 @@
             const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
             const nextPortIndex = currentPortIndex + 1;
             const nextPortElement = document.querySelector(`[data-port-index='${nextPortIndex}']`);
+            const button = document.querySelector('button');
             if (!nextPortElement) {
                 this.renderMessage(`${ship.currentPort.name} is the last stop in our itinerary!`);
               } else {
