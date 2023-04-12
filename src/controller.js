@@ -8,6 +8,7 @@
                 this.setSail();
             });
         }
+
         initialiseSea() {
             const backgrounds = [
                 './images/water0.png',
@@ -17,6 +18,7 @@
             window.setInterval(() => {document.querySelector('#viewport').style.backgroundImage = `url('${backgrounds[backgroundIndex % backgrounds.length]}')`;
             backgroundIndex += 1;}, 500);
         }
+
         addPorts() {
             const ship = this.ship;
             const input = document.querySelector('input');
@@ -32,11 +34,13 @@
                 input.value = '';
             });
         }
+
         resetPorts(parent){
             while (parent.firstChild) {
                 parent.removeChild(parent.firstChild);
             }
         }
+
         renderPorts(ports) {
             const portsElement = document.querySelector('#ports');
             portsElement.style.width = '0px';
@@ -52,6 +56,7 @@
                 portsElement.style.width = `${portsElementWidth + 256}px`;
             });
         }
+
         renderShip() {
             const ship = this.ship;
             const shipPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
@@ -60,12 +65,12 @@
             shipElement.style.top = `${portElement.offsetTop - 54}px`;
             shipElement.style.left = `${portElement.offsetLeft - 30}px`;
         }
+
         setSail() {
             const ship = this.ship;
             const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
             const nextPortIndex = currentPortIndex + 1;
             const nextPortElement = document.querySelector(`[data-port-index='${nextPortIndex}']`);
-            const button = document.querySelector('button');
             if (!nextPortElement) {
                 this.renderMessage(`${ship.currentPort.name} is the last stop in our itinerary!`);
               } else {
@@ -85,6 +90,7 @@
                 shipElement.style.left = `${shipLeft + 1}px`;
             }, 20);
         }
+
         renderMessage(message) {
             const messageElement = document.createElement('div');
             messageElement.id = 'message';
@@ -97,6 +103,7 @@
                 viewport.removeChild(messageElement);
             }, 2136); 
         }
+        
         headsUpDisplay() {
             const ship = this.ship;
             const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);

@@ -11,6 +11,7 @@
                 this.dock();
             }
         }
+
         setSail() {
             if (this.itineraryCount >= (this.itinerary.ports.length - 1)) {
                 throw new Error('End of itinerary reached');
@@ -21,6 +22,7 @@
                 this.previousPort.removeShip(this);
             }
         }
+        
         dock() {
             this.currentPort = this.itinerary.ports[this.itineraryCount];
             this.currentPort.addShip(this);
