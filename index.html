@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&family=Playfair+Display+SC&family=Shrikhand&family=Unbounded:wght@300&display=swap" rel="stylesheet">
+        <meta charset='UTF-8'>
+        <meta http-equiv="X-UA-Compatible" content='IE=edge'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <title>Cruise Ships</title>
+        <link rel='stylesheet' href='css/normalize.css'>
+        <link rel='stylesheet' href='css/style.css'>
+    </head>
+    <body>
+        <div id='viewport'>
+            <div id='ports'></div>
+            <div id='ship'></div>
+            <button id='sailButton' hidden>SET SAIL!</button>
+            <div id='display'></div>
+        </div>
+        <form id='form' onsubmit='return false'>
+            <label for='port'>Port Name:</label>
+            <input type='text' size='18' placeholder='Enter next port here' value=''>
+            <button type='submit' id='addPortButton'>Add</button>
+        </form>
+        <script src='src/controller.js'></script>
+        <script src='src/port.js'></script>
+        <script src='src/itinerary.js'></script>
+        <script src='src/ship.js'></script>
+        <script>
+            const itinerary = new Itinerary([new Port('First port of call')]);
+            const ship = new Ship(itinerary);
+            const controller = new Controller(ship);
+            controller.renderPorts(itinerary.ports);
+        </script>
+    </body>
+</html>

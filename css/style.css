@@ -1,0 +1,88 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#viewport {
+    width: 640px;
+    height: 256px;
+    position: relative;
+    overflow-x: auto;
+    background-image: url('../images/water0.png');
+    border-radius: 24px;
+}
+
+#ports {
+    margin-top: 96px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#ports > .port {
+    width: 64px;
+    height: 32px;
+    background-image: url('../images/port.png');
+}
+
+#ship {
+    width: 128px;
+    height: 64px;
+    position: absolute;
+    background-image: url('../images/ship.png');
+}
+
+#sailButton {
+    font-family: 'Shrikhand', cursive;
+    position: fixed;
+    top: 33%;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    font-size: 1.2em;
+    padding: 9px;
+}
+
+#sailButton:hover {
+    border: 3px inset black;
+    border-radius: 90px;
+}
+
+#sailButton:active {
+    border: 3px outset white;
+    color: white;
+}
+
+#message {
+    color: white;
+    background-color:red;
+    font-family: 'Unbounded', cursive;
+    position: fixed;
+    bottom: 33.3%;
+    width: auto;
+    right: 400px;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    padding: 9px;
+    border-radius: 24px 0px 24px 0px;
+}
+
+#display {
+    color: white;
+    font-family: 'Playfair Display SC', serif;
+    position: fixed;
+    bottom: 24%;
+    font-size: 1.8em;
+}
+
+#form {
+    color: white;
+    font-family: 'Lobster Two', cursive;
+    position: fixed;
+    top: 27%;
+    font-size: 1.8em;
+}

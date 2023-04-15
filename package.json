@@ -18,5 +18,8 @@
   "homepage": "https://github.com/josenymad/cruise-ships#readme",
   "devDependencies": {
     "jest": "^29.5.0"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
   }
 }
